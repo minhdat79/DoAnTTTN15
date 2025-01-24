@@ -13,19 +13,19 @@ import {
 const social_data = [
   {
     id: 1,
-    link: "https://www.facebook.com/hamed.y.hasan0",
+    link: "https://www.facebook.com/nhom15tttn",
     icon: <FacebookOutlined />,
     title: "Facebook",
   },
   {
     id: 2,
-    link: "https://twitter.com/HamedHasan75",
+    link: "https://twitter.com/nhom15tttn",
     icon: <TwitterOutlined />,
     title: "Twitter",
   },
   {
     id: 3,
-    link: "https://linkedin.com/in/hamed-hasan/",
+    link: "https://linkedin.com/in/nhom15tttn",
     icon: <LinkedinOutlined />,
     title: "LinkedIn",
   },
@@ -49,28 +49,13 @@ const Footer = () => {
                 </Link>
               </div>
               <p className="text-gray-600">
-                Thành viên nhóm 15:
-                <ul className="text-gray-600 space-y-2">
-                <li>
-                  <a>
-                    Đoàn Phan Trung Chiến
-                  </a>
-                </li>
-              </ul>
-              <ul className="text-gray-600 space-y-2">
-                <li>
-                  <a>
-                    Vũ Minh Đạt
-                  </a>
-                </li>
-              </ul>
-              <ul className="text-gray-600 space-y-2">
-                <li>
-                  <a>
-                    Trang Đại Gia
-                  </a>
-                </li>
-              </ul>
+                Đoàn Phan Trung Chiến
+              </p>
+              <p className="text-gray-600">
+                Vũ Minh Đạt
+              </p>
+              <p className="text-gray-600">
+                Trang Đại Gia
               </p>
               <div className="flex space-x-4 mt-4">
                 {social_data.map((s) => (
@@ -159,14 +144,14 @@ const Footer = () => {
             </div>
 
             <div className="mb-8">
-              <h4 className="text-lg font-semibold mb-4">Hỗ trợ</h4>
+              <h4 className="text-lg font-semibold mb-4">Trò chuyện với chúng tôi</h4>
               <div className="mb-6">
                 <span className="block text-gray-600">
-                  Liên lạc hỗ trợ
+                  Liên hệ thắc mắc
                 </span>
                 <h4 className="text-xl font-bold">
                   <a href="tel:670-413-90-762" className="hover:text-blue-500">
-                    +8409397968
+                    +84337373733
                   </a>
                 </h4>
               </div>
@@ -191,7 +176,7 @@ const Footer = () => {
         <div className="border-t mt-8 pt-6">
           <div className="container mx-auto flex flex-col md:flex-row justify-between items-center text-gray-600">
             <p className="text-sm">
-              © {new Date().getFullYear()} Nhóm 15 TTTN 
+              © {new Date().getFullYear()} Đồ án nhóm 15 TTTN
             </p>
             <div className="mt-4 md:mt-0">
               <img src={pay} alt="thanh toán" />

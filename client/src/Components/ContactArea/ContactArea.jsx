@@ -41,7 +41,7 @@ const ContactArea = () => {
                           href="mailto:contact@shofy.com"
                           className="text-blue-500 hover:underline"
                         >
-                          contact@nhom15tttn.com
+                          contact@nhom15.com
                         </a>
                       </p>
                       <p>
@@ -49,7 +49,7 @@ const ContactArea = () => {
                           href="tel:670-413-90-762"
                           className="text-blue-500 hover:underline"
                         >
-                          +09397968
+                          +0937373737
                         </a>
                       </p>
                     </div>
@@ -67,7 +67,7 @@ const ContactArea = () => {
                           target="_blank"
                           className="text-blue-500 hover:underline"
                         >
-                          NHOM15TTTN <br /> HO CHI MINH
+                          Nhom15 <br /> Ho CHi Minh
                         </a>
                       </p>
                     </div>

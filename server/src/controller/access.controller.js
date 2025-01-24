@@ -15,6 +15,24 @@ class AccessController {
       data: await AccessService.singUp(req.body),
     }).send(res);
   };
+  forgotPassword = async (req, res, next) => {
+    new SuccessResponse({
+      message: "OK!",
+      data: await AccessService.forgotPassword(req.body),
+    }).send(res);
+  };
+  confirmAccount = async (req, res, next) => {
+    new SuccessResponse({
+      message: "OK!",
+      data: await AccessService.confirmAccount(req.user, req.keyStore),
+    }).send(res);
+  };
+  resetPassword = async (req, res, next) => {
+    new SuccessResponse({
+      message: "OK!",
+      data: await AccessService.resetPassword(req.body, req.user, req.keyStore),
+    }).send(res);
+  };
   logout = async (req, res, next) => {
     new SuccessResponse({
       message: "logout successfully",

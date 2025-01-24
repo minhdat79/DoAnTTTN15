@@ -156,8 +156,8 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <Button onClick={() => navigator("/login")}>Login</Button>
-              <Button onClick={() => navigator("/register")}>Register</Button>
+              <Button onClick={() => navigator("/login")}>Đăng nhập</Button>
+              <Button onClick={() => navigator("/register")}>Đăng kí</Button>
             </>
           )}
         </div>
