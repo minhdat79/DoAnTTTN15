@@ -22,6 +22,8 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 require("./dbs/init.mongodb");
+app.use('/uploads', express.static('src/uploads'));
+
 //init router
 app.use("/", require("./routers"));
 
