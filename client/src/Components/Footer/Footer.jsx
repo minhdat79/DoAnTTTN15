@@ -151,7 +151,7 @@ const Footer = () => {
                 </span>
                 <h4 className="text-xl font-bold">
                   <a href="tel:670-413-90-762" className="hover:text-blue-500">
-                    +84337373733
+                    +840938358630
                   </a>
                 </h4>
               </div>
