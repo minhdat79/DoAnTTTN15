@@ -4,9 +4,12 @@ import React, { useState, useEffect } from "react";
 import { formatCurrencyVND } from "../../utils";
 import { getAllProduct } from "../../service/productService";
 import ProductItem from "../../Components/ProductItem/ProductItem";
+import { getAllCategory } from "../../service/categoryService";
+import { useLocation, useParams } from "react-router-dom";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [pagi, setPagi] = useState({
     total: 1,
     limit: 6,
@@ -16,11 +19,14 @@ const Shop = () => {
   const [filters, setFilters] = useState({
     priceRange: [0, 10000000000],
     status: [],
-    categories: [],
+    category: [],
     sortBy: null,
+    searchText: "",
   });
-  const categoriesList = ["Áo", "Quần"];
-
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const searchText = searchParams.get("search");
+  const categoryText = searchParams.get("categories");
   const fetchProducts = async () => {
     try {
       const res = await getAllProduct({
@@ -36,7 +42,56 @@ const Shop = () => {
       message.error("Không thể tải danh sách sản phẩm");
     }
   };
+  const fetchAllCategories = async () => {
+    try {
+      const res = await getAllCategory({
+        page: 1,
+        limit: 1000,
+      });
+      if (res.status === 200) {
+        setCategories(res.data.data);
+      }
+    } catch (error) {
+      message.error("Không thể tải danh sách sản phẩm");
+    }
+  };
+  useEffect(() => {
+    if (searchText) {
+      setFilters((prev) => ({
+        ...prev,
+        searchText: searchText,
+      }));
+    } else {
+      setFilters((prev) => ({
+        ...prev,
+        searchText: "",
+      }));
+    }
+  }, [searchText]);
 
+  useEffect(() => {
+    if (categoryText && categories.length > 0) {
+      const matchedCategory = categories.find((cate) =>
+        new RegExp(`^${categoryText}$`, "i").test(cate.name)
+      );
+
+      if (matchedCategory) {
+        setFilters((prev) => ({
+          ...prev,
+          category: [matchedCategory._id],
+        }));
+      } else {
+        setFilters((prev) => ({
+          ...prev,
+          category: [],
+        }));
+      }
+    }
+  }, [categoryText, categories]); // Tách riêng hiệu ứng này để đảm bảo nó chạy khi categories đã có dữ liệu
+
+  useEffect(() => {
+    fetchAllCategories();
+  }, []);
   useEffect(() => {
     fetchProducts();
   }, [filters, pagi.page, pagi.limit]);
@@ -69,9 +124,9 @@ const Shop = () => {
   const handleCategoryChange = (category) => {
     setFilters((prev) => ({
       ...prev,
-      categories: prev.categories.includes(category)
-        ? prev.categories.filter((cat) => cat !== category)
-        : [...prev.categories, category],
+      category: prev?.category?.includes(category)
+        ? prev?.category.filter((cat) => cat !== category)
+        : [...prev.category, category],
     }));
   };
 
@@ -92,6 +147,14 @@ const Shop = () => {
       <div className="container">
         <div className="flex gap-6 px-4 py-6">
           <div className="w-1/4">
+            {searchText ? (
+              <div>
+                <h3 className="text-lg font-base mb-2">
+                  Kết quả tìm kiếm của bạn: <strong>{searchText}</strong>
+                </h3>
+              </div>
+            ) : null}
+
             <div className="mb-6">
               <h3 className="text-lg font-semibold mb-2">
                 Lọc theo khoảng giá
@@ -139,16 +202,17 @@ const Shop = () => {
             <div>
               <h3 className="text-lg font-semibold mb-2">Thể loại</h3>
               <ul className="space-y-2 text-gray-600">
-                {categoriesList.map((category) => (
+                {categories.map((category) => (
                   <li
-                    key={category}
+                    key={category._id}
                     className="cursor-pointer hover:text-black"
                   >
                     <input
                       type="checkbox"
-                      onChange={() => handleCategoryChange(category)}
+                      checked={filters.category.includes(category._id)}
+                      onChange={() => handleCategoryChange(category._id)}
                     />
-                    <label className="ml-2">{category}</label>
+                    <label className="ml-2">{category.name}</label>
                   </li>
                 ))}
               </ul>
