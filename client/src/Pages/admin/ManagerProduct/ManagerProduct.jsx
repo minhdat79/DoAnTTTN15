@@ -54,8 +54,7 @@ const ManagerProduct = () => {
     } finally {
       setLoading(false);
     }
-  };
-  useEffect(() => {
+  };  useEffect(() => {
     fetchData(pagi.page, pagi.limit);
   }, []);
 
