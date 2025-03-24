@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import qrcodeImg from "../../assets/img/payment/bc1eef4b-376d-4287-9d46-448535a6ad09.jpg";
+import qrcodeImg from "../../assets/img/payment/bc1eef4b-376d-4287-9d46-448535a6ad09.jpeg";
 
 const QrCodeForm = ({ onCancel, draftOrder }) => {
-  const [timeLeft, setTimeLeft] = useState(300);
+  const [timeLeft, setTimeLeft] = useState(240);
 
   useEffect(() => {
     if (timeLeft <= 0) {

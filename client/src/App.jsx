@@ -27,10 +27,13 @@ import ResetPassword from "./Pages/Auth/ResetPassword/ResetPassword";
 import ConfirmAccoount from "./Pages/Auth/ConfirmAccount/ConfirmAccoount";
 import ManagerContact from "./Pages/admin/ManagerContact/ManagerContact";
 import ManagerCategory from "./Pages/admin/ManagerCategory/ManagerCategory";
+import ManagerChatbot from "./Pages/admin/ManagerChatbot/ManagerChatbot";
+import VnpayReturn from "./Pages/VnpayReturn/VnpayReturn";
 const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/">
+        <Route path="/vnpay_return" element={<VnpayReturn />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
@@ -56,6 +59,7 @@ const App = () => {
           <Route path="/manager-brand" element={<ManagerBrand />} />
           <Route path="/manager-contact" element={<ManagerContact />} />
           <Route path="/manager-category" element={<ManagerCategory />} />
+          <Route path="/manager-chatbot" element={<ManagerChatbot />} />
           <Route
             path="/manager-quantity/:productId"
             element={<ManagerQuantityProduct />}
