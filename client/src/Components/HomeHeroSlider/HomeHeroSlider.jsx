@@ -9,11 +9,11 @@ import { ArrowRightLong, TextShape } from "../../svg/index";
 // Banner Data
 const bannerData = {
   pre_title: { text: "Giá từ", price: "99.000" },
-  title: "Bộ sưu tập quần áo 2023-2025",
+  title: "Bộ sưu tập quần áo 2024-2025",
   subtitle: {
     text_1: "Ưu đãi đặc biệt ",
     percent: 35,
-    text_2: "giảm giá trong tuần này",
+    text_2: "Giảm giá trong tuần này",
   },
   img: slider_img_1,
   green_bg: true,

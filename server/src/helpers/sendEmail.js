@@ -12,7 +12,7 @@ const transporter = nodemailer.createTransport({
 const sendEmail = async (to, subject, html) => {
   try {
     const mailOptions = {
-      from: `"no-reply" <${process.env.YOUREMAIL}>`,
+      from: `"NHÓM 15 TTTN" <${process.env.YOUREMAIL}>`,
       to,
       subject,
       html,

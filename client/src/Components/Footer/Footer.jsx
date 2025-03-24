@@ -47,10 +47,15 @@ const Footer = () => {
                 <Link href="/">
                   <span className="font-bold text-xl">Nhóm15 TTTN</span>
                 </Link>
-              </div>
+                </div>
               <p className="text-gray-600">
-                We are a dynamic team of full stack developers and designers
-                crafting high-quality web applications.
+                Đoàn Phan Trung Chiến
+              </p>
+              <p className="text-gray-600">
+                Vũ Minh Đạt
+              </p>
+              <p className="text-gray-600">
+                Trang Đại Gia
               </p>
               <div className="flex space-x-4 mt-4">
                 {social_data.map((s) => (
