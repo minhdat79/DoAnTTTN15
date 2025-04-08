@@ -115,15 +115,15 @@ const Chat = () => {
         </div>
       )}
       <Button
-  type="primary"
-  shape="circle"
-  size="small"
-  className="shadow-lg"
-  onClick={toggleChat}
-  style={{ display: isChatVisible ? "none" : "block", backgroundColor: "white", color: "black" }}
->
-</Button>
-
+        type="primary"
+        shape="circle"
+        size="large"
+        className="shadow-lg"
+        onClick={toggleChat}
+        style={{ display: isChatVisible ? "none" : "block" }}
+      >
+        💬
+      </Button>
     </div>
   );
 };
